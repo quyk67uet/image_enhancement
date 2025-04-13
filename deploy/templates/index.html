@@ -38,7 +38,7 @@
         }
         
         img {
-            width: 1000px;
+            width: 2000px;
         }
 
         input[type="file"] {
@@ -117,7 +117,7 @@
 <body>
 
     <div class="container">
-        <h2>Xử lý hình ảnh với Flask</h2>
+        <h2>Image Enhancement</h2>
 
         <form method="POST" enctype="multipart/form-data">
             <input type="file" name="image" accept="image/*" onchange="previewImage(event)">
@@ -125,16 +125,16 @@
             <div class="image-comparison">
                 <div>
                     {% if original %}
-                        <h3>Ảnh gốc:</h3>
+                        <h3>Original:</h3>
                         <img id="preview" class="image-preview" src="{{ url_for('static', filename=original) }}" alt="Preview"><br>
                     {% else %}
-                        <h3>Ảnh gốc:</h3>
+                        <h3>Original:</h3>
                         <img id="preview" class="image-preview" style="display:none;" alt="Preview"><br>
                     {% endif %}
                 </div>
                 <div>
                     {% if processed %}
-                        <h3>Ảnh sau khi xử lý:</h3>
+                        <h3>Result:</h3>
                         <img src="{{ url_for('static', filename=processed) }}" alt="Processed Image">
                     {% endif %}
                     
@@ -154,7 +154,7 @@
             </div>
             <div id="loading" style="display: none; text-align: center; margin-bottom: 15px;">
                 <div class="spinner" style="border: 4px solid #f3f3f3; border-top: 4px solid #4CAF50; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 0 auto;"></div>
-                <p>Đang xử lý ảnh, vui lòng đợi...</p>
+                <p>The image is being analyze, please wait...</p>
             </div>
             
             <style>
@@ -164,7 +164,7 @@
             }
             </style>
             
-            <input type="submit" class="btn-submit" value="Xử lý ảnh">
+            <input type="submit" class="btn-submit" value="Start">
         </form>
     </div>
 
